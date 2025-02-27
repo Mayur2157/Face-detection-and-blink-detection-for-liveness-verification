@@ -1,0 +1,260 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    color: #343a40;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #0d6efd;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.video-container {
+    position: relative;
+    margin: 0 auto 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #e9ecef;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+#face-guide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 2px dashed rgba(13, 110, 253, 0.5);
+    border-radius: 50%;
+    transition: border-color 0.3s;
+}
+
+.guide-active {
+    border-color: rgba(25, 135, 84, 0.6) !important;
+}
+
+.metrics-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.status-message {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.status-ready {
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+
+.status-active {
+    background-color: #cfe2ff;
+    color: #084298;
+}
+
+.status-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-verified {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #d1e7dd;
+    }
+    50% {
+        background-color: #9eecc6;
+    }
+    100% {
+        background-color: #d1e7dd;
+    }
+}
+
+.button-container {
+    margin: 15px 0;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+#startButton {
+    background-color: #0d6efd;
+    color: white;
+}
+
+#startButton:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+#startButton:active {
+    transform: translateY(0);
+}
+
+.instructions {
+    margin-top: 15px;
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.debug-info {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    text-align: left;
+    font-family: monospace;
+    font-size: 12px;
+    color: #6c757d;
+    display: none;
+}
+
+.ear-meter {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin: 5px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ear-value {
+    height: 100%;
+    background-color: #0d6efd;
+    border-radius: 5px;
+    width: 50%;
+    transition: width 0.2s;
+}
+
+.blink-indicator {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.blink-active {
+    background-color: #dc3545;
+    animation: blink-flash 0.5s;
+}
+
+@keyframes blink-flash {
+    0% {
+        transform: scale(1);
+        background-color: #dc3545;
+    }
+    50% {
+        transform: scale(1.5);
+        background-color: #ffc107;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #dc3545;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .metrics-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .metric {
+        width: 100%;
+    }
+}

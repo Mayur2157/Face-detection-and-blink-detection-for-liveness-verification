@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink Detection - Liveness Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Blink Detection for Liveness Verification</h1>
+        
+        <div class="video-container">
+            <video id="video" autoplay playsinline></video>
+            <div id="overlay">
+                <div id="face-guide"></div>
+            </div>
+        </div>
+
+        <div id="statusMessage" class="status-message status-ready">
+            Connecting to camera...
+        </div>
+        
+        <div class="metrics-container">
+            <div class="metric">
+                <div class="metric-value" id="blinkCountValue">0</div>
+                <div class="metric-label">Blinks</div>
+                <div class="blink-indicator" id="blinkIndicator"></div>
+            </div>
+            
+            <div class="metric">
+                <div class="metric-value" id="livenessScoreValue">0</div>
+                <div class="metric-label">Liveness Score</div>
+            </div>
+        </div>
+        
+        <div>
+            <div class="metric-label">Eye Openness</div>
+            <div class="ear-meter">
+                <div class="ear-value" id="earValue"></div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="startButton">Start Detection</button>
+        </div>
+        
+        <p class="instructions">
+            Position your face in the frame and blink naturally.
+            A liveness score of 30+ confirms you're a real person.
+            <br><br>
+            <strong>How it works:</strong> This system uses computer vision to detect your eye blinks 
+            in real-time, which helps verify that you're a real person and not a photo or recording.
+        </p>
+        
+        <div id="debugInfo" class="debug-info">
+            EAR: 0.000
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
